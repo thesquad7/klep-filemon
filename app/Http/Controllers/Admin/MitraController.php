@@ -5,19 +5,14 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-class MitraController extends Controller
+class MitraController implements ControllerInt
 {
-    public function __construct()
-    {
-        parent::__construct();
-    }
+
 
     public function index()
     {
-        if (Auth::user()->role == '1') {
-            return view('/admin/mitra/index', $this->data);
-        } else {
-            return view('/pengunjung/tampilanpengunjung');
-        }
+        $data = Mitra::orderBy('name', 'ASC')->paginate(10);
+        $this->data['data'] = $data;
+        return view('admin.mitra.index', $this->data);
     }
 }

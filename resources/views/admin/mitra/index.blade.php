@@ -61,7 +61,7 @@
                     {{ $data->links() }}
                 </div>
                 <div class="card-footer text-right">
-                    <a href="/tambahmitra" class="btn btn-primary">Tambah Data</a>
+                    <a href="{{route ('mitra.create')}}" class="btn btn-primary">Tambah Data</a>
                 </div>
             </div>
         </div>
